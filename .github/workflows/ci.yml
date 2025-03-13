@@ -18,5 +18,6 @@ jobs:
         with:
           go-version: "1.23.0"
 
-      - name: check golang installation
-        run: (go version)
+
+      - name: Run go tests.
+        run: go test ./...

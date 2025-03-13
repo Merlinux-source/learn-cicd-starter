@@ -18,6 +18,7 @@ func TestGetAPIKey(t *testing.T) {
 		{name: "Validate base case", args: args{http.Header{"Authorization": []string{"ApiKey SuperCoolAuthValue"}}}, want: "SuperCoolAuthValue", wantErr: false},
 		{name: "Validate empty header case", args: args{http.Header{}}, want: "", wantErr: true},
 		{name: "Validate malformed header", args: args{http.Header{"Authorization": []string{"NotApiKey SuperCoolAuthValue"}}}, want: "", wantErr: true},
+		{name: "temporarily break unit tests in order to validate CI integration failiure.", args: args{http.Header{}}, want: "SuperCoolAuthValueThatWillNeverBeHere.", wantErr: false},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
